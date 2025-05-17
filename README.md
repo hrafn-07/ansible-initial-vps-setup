@@ -42,8 +42,8 @@ This playbook automates the following tasks:
 ### 1️⃣ Clone this repository
 
 ```bash
-git clone https://github.com/yourusername/ansible-vps-setup.git
-cd ansible-vps-setup
+git clone https://github.com/hrafn-07/ansible-vps-setup.git
+cd ansible-initial-vps-setup
 ```
 
 ### 2️⃣ Generate SSH key
