@@ -1,0 +1,10 @@
+---
+- name: Set timezone
+  timezone:
+    name: "{{ timezone }}"
+  tags: system
+
+- name: Set hostname
+  hostname:
+    name: "{{ hostname }}"
+  tags: system

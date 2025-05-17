@@ -1,0 +1,32 @@
+# Ansible specific
+*.retry
+
+# SSH private keys
+ssh/*_key
+ssh/*_key.pub
+# If your vars.yml contains sensitive information not managed by Ansible Vault,
+# you might want to uncomment the following line:
+# vars.yml
+
+# Python specific
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.env
+.venv
+ENV/
+venv/
+ENV/
+
+# OS specific
+.DS_Store
+._*
+Thumbs.db
+
+# IDE specific
+.vscode/
+.idea/
+*.swp
+*.swo

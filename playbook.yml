@@ -1,0 +1,24 @@
+---
+- name: Initial VPS setup
+  hosts: vms
+  become: true
+  vars_files:
+    - vars.yml
+
+  tasks:
+    - name: Include package installation tasks
+      include_tasks: tasks/packages.yml
+      tags: packages
+
+    - name: Include SSH tasks
+      include_tasks: tasks/ssh.yml
+      tags: ssh
+
+    - name: Include security tasks
+      include_tasks: tasks/security.yml
+      tags: security
+
+    - name: Include system configuration tasks
+      include_tasks: tasks/system.yml
+      tags: system
+

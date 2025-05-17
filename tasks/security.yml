@@ -1,0 +1,32 @@
+---
+- name: Update all packages
+  apt:
+    update_cache: yes
+    upgrade: dist
+  tags: security
+
+- name: Install UFW and Fail2Ban
+  apt:
+    name:
+      - ufw
+      - fail2ban
+    state: present
+  tags: security
+
+- name: Allow SSH in UFW
+  ufw:
+    rule: allow
+    name: OpenSSH
+  tags: security
+
+- name: Enable UFW
+  ufw:
+    state: enabled
+  tags: security
+
+- name: Enable and start Fail2Ban
+  service:
+    name: fail2ban
+    enabled: yes
+    state: started
+  tags: security

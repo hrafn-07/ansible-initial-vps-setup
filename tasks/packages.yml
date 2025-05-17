@@ -1,0 +1,14 @@
+---
+- name: Install common packages and sudo
+  apt:
+    name:
+      - htop
+      - curl
+      - wget
+      - git
+      - vim
+      - unzip
+      - nano
+      - sudo
+    state: present
+  tags: packages

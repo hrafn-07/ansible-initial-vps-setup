@@ -1,0 +1,12 @@
+new_user: username
+user_pubkey: "{{ lookup('file', './ssh/ansible_user_key.pub') }}"
+timezone: "Europe/Istanbul"
+hostname: "debian-vm"
+base_packages:
+  - htop
+  - curl
+  - wget
+  - git
+  - vim
+  - unzip
+  - nano

@@ -1,0 +1,34 @@
+---
+- name: Create a new sudo user
+  user:
+    name: "{{ new_user }}"
+    shell: /bin/bash
+    groups: sudo
+    append: yes
+  tags: ssh
+
+- name: Set authorized key for new user
+  authorized_key:
+    user: "{{ new_user }}"
+    key: "{{ user_pubkey }}"
+  tags: ssh
+
+- name: Disable root SSH login
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#?PermitRootLogin'
+    line: 'PermitRootLogin no'
+  tags: ssh
+
+- name: Disable password authentication
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#?PasswordAuthentication'
+    line: 'PasswordAuthentication no'
+  tags: ssh
+
+- name: Restart SSH service
+  service:
+    name: ssh
+    state: restarted
+  tags: ssh
